@@ -1,0 +1,59 @@
+.error{color: red;}
+h1 {
+	color: black;
+	font-family: verdana;
+}
+p {
+  color: white;
+  font-family: verdana;
+  font-size: 20px;
+}
+.center{
+  margin: auto;
+  width: 60%;
+  background-color: transparent;
+  border: 3px solid #b5651d;
+  padding:15px;
+}
+body {
+  background-image: url("/img/library.jpeg");
+  text-align: center;
+}
+input[type=text], [type=password]{
+  width: 75%;
+  padding: 12px 20px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  border: 2px solid #b5651d;
+  border-radius: 4px;
+}
+table.bookTable {
+	margin: auto;
+	width: 600px;
+	border-collapse: collapse;
+	border: 1px solid #fff; 
+	border-style: hidden;
+}
+table.bookTable table th#thRegular, table.timecard thead th#thOvertime, table.timecard thead th#thTotal {
+	width: 20%;
+}
+table.bookTable td {
+	text-align: left;
+}
+table.bookTable th, table.bookTable td {
+	padding: 3px;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #FFFFFF;
+}
+
+input[type=submit]{
+  color: #FFFFFF; 
+  background-color: transparent; 
+  border: 2px solid #b5651d;
+  border-radius: 5px; 
+  text-transform: uppercase; 
+}
+tbody tr:nth-child(odd) {
+  background: #eee;
+}

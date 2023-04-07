@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>Library Database</title>
+<link rel="stylesheet" type="text/css"
+	href="../static/css/styles.css" th:href="@{/css/styles.css}">
+</head>
+<body>
+	<div class="center">
+	
+		<h1>Welcome to the Library Database</h1>
+	 
+	 	<div th:text="${message}" class="error">
+	 		<p th:text="{message}" />
+	 	</div>
+	
+		<div th:if="${#lists.isEmpty(bookList)}">
+			<h1>No books yet</h1>
+		</div>
+		
+		<div th:unless="${#lists.isEmpty(bookList)}">
+			<table border="1" class="bookTable">
+				<tr>
+					<th id="thTitle">Title</th>
+					<th id="thAuthor">Author</th>
+					<th id= "thReview" colspan="2">Review</th>
+				</tr>
+				<tr th:each="book : ${bookList}">
+					<td th:text="${book.title}"></td>
+					<td th:text="${book.author}"></td>
+					<td><a href="" th:href="@{/viewBook/} + ${book.id}">View</a></td>
+				</tr>
+			</table>
+		</div>
+	<br>
+
+		<div sec:authorize="!isAuthenticated()">
+			<p>Login <a href= "/login">here</a></p>
+		</div>
+			
+		<div sec:authorize="hasRole('MANAGER')">
+			<p><a href="" th:href = "@{/admin/addBook}">Add Book</a><p>
+		</div>
+
+		<div sec:authorize="isAuthenticated()">
+			<form action="/logout" method="post"><input type="hidden" name="csrf"  value="8ec12704-5ab6-4f0c-a758-2fc36f2c9368"/>
+    			<input type="submit" value="Logout" />
+			</form>
+		</div>
+	</div>	
+</body>
+</html>
